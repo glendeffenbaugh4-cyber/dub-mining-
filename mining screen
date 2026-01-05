@@ -1,0 +1,20 @@
+
+@Composable
+fun MiningScreen(viewModel: MiningViewModel) {
+    val miningState by viewModel.miningState.collectAsState()
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text("Dub Coin Balance: ${miningState.balance} DUB")
+
+        Button(
+            onClick = { viewModel.startMining() },
+            enabled = !miningState.isMining
+        ) {
+            Text(if (miningState.isMining) "Mining..." else "Start Mining")
+        }
+    }
+}
+
