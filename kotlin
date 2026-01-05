@@ -1,0 +1,11 @@
+class MiningViewModel : ViewModel() {
+
+    private val _miningState = MutableStateFlow(MiningState())
+    val miningState = _miningState.asStateFlow()
+
+    fun startMining() {
+        // call backend API
+        // lock mining for 1 hour
+        // update UI timer
+    }
+}
